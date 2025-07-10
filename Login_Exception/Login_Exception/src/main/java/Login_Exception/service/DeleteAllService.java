@@ -1,8 +1,9 @@
 package Login_Exception.service;
 
 import Login_Exception.repository.UserRepository;
-import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
+@Service
 public class DeleteAllService {
 
     private final UserRepository userRepository;

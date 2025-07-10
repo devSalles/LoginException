@@ -19,7 +19,7 @@ public class AddNewService {
 
     public UserModel addNew(UserDTO userDTO)
     {
-        if(userDTO.getEmail() == null || userDTO.getEmail().isBlank() && !userDTO.getEmail().contains("@"))
+        if(userDTO.getEmail() == null || userDTO.getEmail().isBlank() )
         {
             throw new EmailArgumentException();
         }

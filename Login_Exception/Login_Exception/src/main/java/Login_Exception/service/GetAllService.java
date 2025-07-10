@@ -3,9 +3,11 @@ package Login_Exception.service;
 import Login_Exception.core.exception.EmptyListException;
 import Login_Exception.model.UserModel;
 import Login_Exception.repository.UserRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class GetAllService {
 
     private final UserRepository userRepository;

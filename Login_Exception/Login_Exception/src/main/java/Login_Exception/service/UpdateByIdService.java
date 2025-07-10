@@ -4,9 +4,11 @@ import Login_Exception.core.exception.IdNotFoundException;
 import Login_Exception.dto.UserDTO;
 import Login_Exception.model.UserModel;
 import Login_Exception.repository.UserRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Service
 public class UpdateByIdService {
 
     private final UserRepository userRepository;
@@ -24,6 +26,7 @@ public class UpdateByIdService {
         }
         UserModel userSave=userID.get();
         userDTO.updateUser(userSave);
+        this.userRepository.save(userSave);
         return userSave;
     }
 }
