@@ -6,6 +6,6 @@ public class IdNotFoundException extends RuntimeException {
     }
 
     public IdNotFoundException() {
-        super("Formato de senha inválido");
+        super("ID não encontrado");
     }
 }

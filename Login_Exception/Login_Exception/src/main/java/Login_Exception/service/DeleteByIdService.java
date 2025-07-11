@@ -19,12 +19,12 @@ public class DeleteByIdService {
     public boolean deleteById(Long id)
     {
         Optional<UserModel>userID=this.userRepository.findById(id);
-        if(userID.isEmpty())
+        if(userID.isPresent())
         {
-            throw new IdNotFoundException();
+            UserModel userModel=userID.get();
+            this.userRepository.delete(userModel);
+            return true;
         }
-        UserModel userModel=userID.get();
-        this.userRepository.delete(userModel);
-        return true;
+        throw new IdNotFoundException();
     }
 }

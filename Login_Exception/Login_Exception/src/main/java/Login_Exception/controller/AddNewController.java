@@ -2,7 +2,6 @@ package Login_Exception.controller;
 
 import Login_Exception.dto.UserDTO;
 import Login_Exception.service.AddNewService;
-import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,7 +20,7 @@ public class AddNewController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<Object> addNew(@Valid @RequestBody UserDTO userDTO)
+    public ResponseEntity<Object> addNew(@RequestBody UserDTO userDTO)
     {
         this.addNewService.addNew(userDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body("Usuário criado");

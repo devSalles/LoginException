@@ -1,6 +1,5 @@
 package Login_Exception.controller;
 
-import Login_Exception.service.DeleteAllService;
 import Login_Exception.service.DeleteByIdService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -19,18 +19,26 @@ public class AddNewService {
 
     public UserModel addNew(UserDTO userDTO)
     {
-        if(userDTO.getEmail() == null || userDTO.getEmail().isBlank() )
+        //Utilização de REGEX para verificar email
+        if(userDTO.getEmail() == null || userDTO.getEmail().isBlank() || !userDTO.getEmail().matches(".*@.*\\..*"))
         {
+            //Usado para DEBUG
+            System.out.println("Email inválido");
             throw new EmailArgumentException();
         }
 
         if(userDTO.getSenha() == null || userDTO.getSenha().isBlank())
         {
+            //Usado para DEBUG
+            System.out.println("Senha inválida");
             throw new SenhaArgumentException();
         }
 
-        if(userDTO.getCpf() == null || userDTO.getCpf().isBlank())
+        //Utilização de REGEX para verificar CPF
+        if(userDTO.getCpf() == null || userDTO.getCpf().isBlank() || !userDTO.getCpf().matches("^\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}$"))
         {
+            //Usado para DEBUG
+            System.out.println("CPF inválido");
             throw new CpfArgumentException();
         }
 
