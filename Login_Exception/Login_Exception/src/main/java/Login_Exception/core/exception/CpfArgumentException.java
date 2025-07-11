@@ -1,6 +1,6 @@
 package Login_Exception.core.exception;
 
-public class CpfArgumentException extends RuntimeException {
+public class CpfArgumentException extends InputValidationExceptions {
     public CpfArgumentException(String message) {
         super(message);
     }

@@ -17,6 +17,7 @@ public class GetByIdService {
 
     public UserModel getById(Long id)
     {
+        //Utilização de Lambda para lançar exceção
         return this.userRepository.findById(id).orElseThrow(() -> new IdNotFoundException());
     }
 }

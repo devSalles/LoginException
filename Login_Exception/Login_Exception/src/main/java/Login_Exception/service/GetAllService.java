@@ -19,6 +19,7 @@ public class GetAllService {
     public List<UserModel> getAll()
     {
         List<UserModel> userList=this.userRepository.findAll();
+        //Lançamento de exceção caso esteja vazio
         if(userList.isEmpty())
         {
             throw new EmptyListException();

@@ -1,6 +1,6 @@
 package Login_Exception.core.exception;
 
-public class SenhaArgumentException extends RuntimeException {
+public class SenhaArgumentException extends InputValidationExceptions {
     public SenhaArgumentException(String message) {
         super(message);
     }

@@ -1,6 +1,6 @@
 package Login_Exception.core.exception;
 
-public class EmailArgumentException extends RuntimeException {
+public class EmailArgumentException extends InputValidationExceptions {
     public EmailArgumentException(String message) {
         super(message);
     }

@@ -27,7 +27,9 @@ public class UserDTO {
     @CPF @NotBlank(message = "CPF obrigatório")
     private String cpf;
 
+    // --- Metodos de conversão abaixo ---
 
+    //Metodo para adição do usuário
     public UserModel toUser()
     {
         UserModel userModel = new UserModel();
@@ -40,6 +42,7 @@ public class UserDTO {
         return userModel;
     }
 
+    //Metodo para atualização do funcionário
     public UserModel updateUser(UserModel userModel)
     {
         userModel.setNome(this.getNome());

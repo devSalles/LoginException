@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+//Entidade principal
 @Entity
 @Table(name = "tb__User")
 @Getter

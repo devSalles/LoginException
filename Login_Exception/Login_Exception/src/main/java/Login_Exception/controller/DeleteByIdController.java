@@ -21,7 +21,7 @@ public class DeleteByIdController {
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Object> deleteById(@PathVariable Long id)
     {
-        Boolean userDel = this.delete.deleteById(id);
+        this.delete.deleteById(id);
         return ResponseEntity.status(HttpStatus.OK).body("Usuário deletado");
     }
 }

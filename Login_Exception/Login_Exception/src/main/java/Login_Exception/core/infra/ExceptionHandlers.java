@@ -10,27 +10,15 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @ControllerAdvice
 public class ExceptionHandlers extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler(EmailArgumentException.class)
-    public ResponseEntity<MessageRestError> emailArgumentInvalid(EmailArgumentException exception)
+    //Exceção para validação de email, senha e CPF
+    @ExceptionHandler(InputValidationExceptions.class)
+    public ResponseEntity<MessageRestError> handlerValidationException(InputValidationExceptions exception)
     {
         MessageRestError messageRestError= new MessageRestError(HttpStatus.BAD_REQUEST,exception.getMessage());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(messageRestError);
     }
 
-    @ExceptionHandler(SenhaArgumentException.class)
-    public ResponseEntity<MessageRestError> senhaArgumentInvalid(SenhaArgumentException exception)
-    {
-        MessageRestError messageRestError = new MessageRestError(HttpStatus.BAD_REQUEST,exception.getMessage());
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(messageRestError);
-    }
-
-    @ExceptionHandler(CpfArgumentException.class)
-    public ResponseEntity<MessageRestError> CPFArgumentInvalid(CpfArgumentException exception)
-    {
-        MessageRestError messageRestError = new MessageRestError(HttpStatus.BAD_REQUEST, exception.getMessage());
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(messageRestError);
-    }
-
+    //Exceção para ID não encontrado
     @ExceptionHandler(IdNotFoundException.class)
     public ResponseEntity<MessageRestError> idNotFoundHandler(IdNotFoundException exception)
     {
@@ -38,6 +26,7 @@ public class ExceptionHandlers extends ResponseEntityExceptionHandler {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(messageRestError);
     }
 
+    //Exceção para banco de dados vazio
     @ExceptionHandler(EmptyListException.class)
     public ResponseEntity<MessageRestError> emptyListHandler(EmptyListException exception)
     {
@@ -45,7 +34,7 @@ public class ExceptionHandlers extends ResponseEntityExceptionHandler {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(messageRestError);
     }
 
-    //Exceção Global
+    //Exceção Global para erros inesperado
     @ExceptionHandler(Exception.class)
     public ResponseEntity<MessageRestError> GlobalException(Exception exception)
     {
